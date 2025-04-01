@@ -1,17 +1,17 @@
 import telnetlib
 import time
 
-HOST = "192.168.22.15"
+HOST = "172.29.66.42"
 PORT = 9880
 # MODBUS_PORT = 502
 TIMEOUT = 10
 
 # Ingresa la cantida de días y el archivo donde vas a descargar los datos
-DIAS = 2
-output_file = "data_output_nox.txt"
+DIAS = 1
+output_file = "data/data_output_nox.txt"
 
 # los equipos 48i y 42i almacenan 1 registro por hora
-download_records = DIAS * 24 
+download_records = DIAS * 24
 
 
 try:
@@ -60,4 +60,4 @@ with open(output_file, "a") as file:
 # Cerrar la conexión Telnet
 tn.close()
 
-print("Datos descargados y guardados en 'data_output.txt'")
+print("Datos descargados y guardados en la carpeta data")
