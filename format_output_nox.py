@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Leer el archivo con una sola columna
-df = pd.read_csv('data_output_nox.txt', encoding='utf-8', header=None)
+df = pd.read_csv('data/data_output_nox.txt', encoding='utf-8', header=None)
 
 # Eliminar las líneas que contienen "lrec" o "sum"
 df = df[~df[0].str.contains('lrec|sum', na=False, case=False)]
@@ -35,6 +35,6 @@ df_promedio = df.groupby(['FECHA', 'HORA'])[['NO', 'NO2', 'NOx']].mean()
 df_promedio = df_promedio.round(0).astype(int)
 
 # Exportar a Excel
-df_promedio.to_excel('promedios_nox.xlsx')
+df_promedio.to_excel('data/promedios_nox.xlsx')
 
 print("DataFrame exportado a promedio_nox.xlsx")
